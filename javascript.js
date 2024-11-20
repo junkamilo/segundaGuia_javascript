@@ -12,35 +12,21 @@ const manejador = {
     },
     set(objetivo,propieda,valor){
         if(Object.keys(objetivo).indexOf(propieda) === -1){
-            return console.error(`La propiedad ${propieda} no existe`);
-            
+            return console.error(`La propiedad ${propieda} no existe`);    
         }
+        objetivo[propieda] = valor;
         if(propieda == "nombre" && !/^[a-zA-Z\s]+$/.test(valor)){
             throw new Error("Valor debe contener solo letras y espacios");
-            
         }
+        objetivo[propieda] = valor;
         if(propieda == "edad" && !/^[0-9]+$/.test(valor)){
             throw new Error("Valor debe contener solo numeros");
-            
         }
-
-
-        // if(Object.keys(objetivo) === "nombre"){
-        //     console.log("puede validar nombre");
-            
-        // }else if(Object.keys(objetivo) === "edad"){
-        //     console.log("puede modificar edad");
-            
-        // }else{
-        //     throw new Error("propiedad no existe")
-            
-        // }
-        
-
+        objetivo[propieda] = valor;
         if(propieda === "nombre" && isNaN(valor)){
             throw new Error("valor no permitido");
         }
-        objetivo[propieda] = valor
+        objetivo[propieda] = valor;//agregamos el resultado al objeto
     }
 }
 
